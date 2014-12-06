@@ -9,7 +9,7 @@ rm(AllData)
 SelectedData$Date <- as.Date(SelectedData$Date, format = "%d/%m/%Y") 
 SelectedData$DateTime <- as.POSIXct(paste(SelectedData$Date, SelectedData$Time)) 
 
-# divide the plot device into four subplots 
+#  
 par(mfrow=c(2,2))  
 # upper left 
 plot(SelectedData$DateTime, SelectedData$Global_active_power, type= "l", lwd=1, ylab= "Global Active Power (kilowatts)", xlab="")  
@@ -19,7 +19,8 @@ plot(SelectedData$DateTime, SelectedData$Voltage, type="l", xlab="datetime", yla
 plot(SelectedData$DateTime, SelectedData$Sub_metering_1, type="l", ylab= "Energy sub metering", xlab="") 
 lines(SelectedData$DateTime, SelectedData$Sub_metering_2, type="l", col="red") 
 lines(SelectedData$DateTime, SelectedData$Sub_metering_3, type="l", col="blue") 
-legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1, bty="n", col=c("black", "red", "blue"))  
+legend("topright", col=c("black", "red", "blue"), lty=1, lwd=2, bty="n", 
+        legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")) 
 # bottom right 
 plot(SelectedData$DateTime, SelectedData$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")   
 
